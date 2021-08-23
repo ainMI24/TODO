@@ -13,9 +13,8 @@ import {
   Link
 } from "react-router-dom";
 
-import LoginForm from "./Components/pages/LoginForm";
-// import GetUsers from "./Components/pages/GetUsers";
-import Todos from "./Components/Todos";
+import LoginForm from "./../../client/src/Components/pages/Login/LoginForm";
+import Todos from "./../../client/src/Components/pages/Todo/Todos";
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/',
