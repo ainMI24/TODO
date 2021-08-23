@@ -6,29 +6,37 @@ import {
   HttpLink,
   from,
 } from "@apollo/client";
-import { onError } from "@apollo/client/link/error";
-import GetUsers from "./Components/pages/GetUsers";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 import LoginForm from "./Components/pages/LoginForm";
-
-const errorLink = onError(({ graphqlErrors, networkError }) => {
-  if (graphqlErrors) {
-    graphqlErrors.map(({ message, location, path }) => {
-      alert(`Graphql error ${message}`);
-    });
-  }
-});
-
+// import GetUsers from "./Components/pages/GetUsers";
+import Todos from "./Components/Todos";
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: 'http://localhost:4000/',
   cache: new InMemoryCache()
 });
 
 function App() {
   return (
+
     <ApolloProvider client={client}>
-      {" "}
-      <LoginForm/>
+        <Router>
+          <Switch>
+            <Route path="/todos">
+              <Todos />
+            </Route>
+            <Route path="/">
+              <LoginForm />
+            </Route>
+          </Switch>
+      </Router>
+      {/* <GetUsers/> */}
     </ApolloProvider>
   );
 }
