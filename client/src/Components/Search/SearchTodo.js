@@ -9,16 +9,15 @@ function SearchTodo() {
   const [searchFilter, setSearchFilter] = useState('');
 
   const { loading, error, data } = useQuery(FIND_NOTES);
-
+  
+  useEffect(() => {
+    if (data) {
+      setSearchFilter(data.getAllTodos)
+    }
+    
+  }, [data]);
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
-
-  useEffect(() => {
-    effect
-    return () => {
-      cleanup
-    }
-  }, [input])
 
 
   return (
