@@ -1,8 +1,9 @@
 // import faker from 'faker'
-import React from 'react'
-// import { Search, Grid} from 'semantic-ui-react'
+import React from 'react';
 import { useState, useEffect} from 'react';
 import './search.css';
+import {FIND_NOTES} from '../../../GraphQL/Queries';
+import {useQuery} from '@apollo/client';
 
 function SearchTodo() {
 
@@ -14,7 +15,6 @@ function SearchTodo() {
     if (data) {
       setSearchFilter(data.getAllTodos)
     }
-    
   }, [data]);
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;

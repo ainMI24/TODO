@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useQuery, gql } from "@apollo/client";
-import { LOAD_USERS } from "/Users/User/Downloads/Todoclient/client/src/GraphQL/Queries";
+import { useQuery} from "@apollo/client";
+import { LOAD_USERS } from "../../../GraphQL/Queries";
 import {
   Container,
   Header,

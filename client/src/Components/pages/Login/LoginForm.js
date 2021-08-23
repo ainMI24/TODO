@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CREATE_USER_MUTATION } from "/Users/User/Downloads/Todoclient/client/src/GraphQL/Mutations";
+import { CREATE_USER_MUTATION } from "./../../../GraphQL/Mutations";
 import { useMutation } from "@apollo/client";
 import 'semantic-ui-css/semantic.min.css'
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
