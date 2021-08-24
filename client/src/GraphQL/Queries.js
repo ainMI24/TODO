@@ -9,14 +9,19 @@ export const LOAD_USERS = gql`
 }
 `;
 
-export const FIND_NOTES = gql`
-query Query($oneNoteTodo: String) {
-  allNotes {
+export const LOAD_NOTES = gql`
+  query Query {
+  getNotes {
     id
     todo
     status
   }
-  oneNote(todo: $oneNoteTodo) {
+}
+`;
+
+export const FIND_NOTES = gql`
+query Query($getNoteTodo: String) {
+  getNote(todo: $getNoteTodo) {
     id
     todo
     status

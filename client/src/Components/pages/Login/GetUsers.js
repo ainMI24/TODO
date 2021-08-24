@@ -32,23 +32,12 @@ function GetUsers() {
     }
   }, [data]);
 
-  if (loading) return (`Loading...`);
-  if (error) return (`Error...${error.message}`);
-
   return (
     <div>
-      <Header as='h1' content='Responsive UI Examples' style={style.h1} textAlign='center' />
-        <Header as='h2' content='Basic Responsive' style={style.h2} textAlign='center' />
-        <Header as='h3' textAlign='center' style={style.h3} content='Container' />
-        <Container>
-        <Segment.Group>
-            <Segment>
-            
-            </Segment>
-            
-        </Segment.Group>
-        </Container>
-     
+      {" "}
+      {users.map((val) => {
+        return <h1> {val.email}</h1>;
+      })}
     </div>
   );
 }
