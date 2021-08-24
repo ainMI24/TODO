@@ -1,7 +1,6 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node": "^16.6.1"
-  }
+    "apollo-server": "^3.1.2",
+    "graphql": "^15.5.1",
+    "node": "^16.6.1",
+    "sequelize": "^6.6.5"
+  },
+  "description": ""
 }

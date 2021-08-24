@@ -1,4 +1,6 @@
 .searchelement {
-    justify-content: center;
-      display: flex;
+    justify-content: top;
+    display: flex;
+    float: right;
+    /* align-items:center; */
   }
