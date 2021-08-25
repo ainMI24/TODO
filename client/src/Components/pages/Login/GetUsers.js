@@ -25,12 +25,22 @@ const style = {
 
 function GetUsers() {
   const { error, loading, data } = useQuery(LOAD_USERS);
+  
   const [users, setUsers] = useState([]);
+  
   useEffect(() => {
     if (data) {
-      setUsers(data.getAllUsers);
+      setUsers(data.getUsers);
     }
   }, [data]);
+
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+  
+
+  console.log(data);
+  console.log(loading);
+  console.log(error);
 
   return (
     <div>

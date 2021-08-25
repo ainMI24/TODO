@@ -8,17 +8,21 @@ import { useHistory } from 'react-router-dom';
 function LoginForm() {
 
   const history = useHistory();
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   // const [id, setID] = useState("");
 
   const [createUser, { data, loading, error}] = useMutation(CREATE_USER_MUTATION);
 
-  const addUser = ({userLoginEmail}) => {
+  const addUser = ({userLoginEMail}) => {
     createUser({
       variables: {
         email: email,
       },
     });
+
+    console.log(data);
+    console.log(loading);
+    console.log(error);
 
     if (loading) return 'Submitting...';
     if (error) return `Submission error! ${error.message}`;

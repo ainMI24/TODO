@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const LOAD_USERS = gql`
-  query Query {
-  allUsers {
+ query Query {
+  getUsers {
     id
     email
   }
@@ -16,8 +16,7 @@ export const LOAD_NOTES = gql`
     todo
     status
   }
-}
-`;
+}`;
 
 export const FIND_NOTES = gql`
 query Query($getNoteTodo: String) {
