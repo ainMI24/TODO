@@ -18,19 +18,12 @@ function SearchTodo() {
   };
 
   useEffect(() => {
-    const results = data.getNotes
-    .map(item => {
-      return {
-        Todos: item.todo,
-        Status: item.status
-      }
-    })
-    .filter(item => 
+    const results = data.getNotes.filter(item => 
         item.todo.toLowerCase().includes(searchText.toLowerCase()));
     setSearchResults(results);
     console.log(results);
-  }, [searchText]);
-    
+  }, [data.getNotes, searchText]);
+
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
@@ -45,7 +38,7 @@ function SearchTodo() {
         />
         <ul>
         {searchResults.map(item => (
-          <li>{item}</li>
+          <li>{item.todo}</li>
         ))}
       </ul>
       </div>
