@@ -6,8 +6,8 @@ function Todos() {
     return (
             <div>
             Logged In! 
-            {/* <SearchTodo/>
-            <GetUsers/>  */}
+            <SearchTodo/>
+            {/* <GetUsers/>  */}
             </div>
     )
 }

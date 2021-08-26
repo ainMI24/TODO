@@ -20,6 +20,8 @@ function SearchTodo() {
 
   const {loading, error, data} = useQuery(LOAD_NOTES, {pollInterval: 500});
 
+  console.log(data);
+  
   useEffect(() => {
     const results = data.getNotes.filter(item => item.todo.toLowerCase().includes(searchText.toLowerCase()));
     setSearchResults(results);
