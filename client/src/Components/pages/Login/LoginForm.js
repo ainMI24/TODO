@@ -4,32 +4,28 @@ import { useMutation } from "@apollo/client";
 import 'semantic-ui-css/semantic.min.css'
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom';
+import {v4 as uuidv4} from 'uuid';
 
 function LoginForm() {
 
   const history = useHistory();
   const [email, setEmail] = useState('');
-  // const [id, setID] = useState("");
+  
+  const [createUser, {loading, error}] = useMutation(CREATE_USER_MUTATION);
 
-  const [createUser, { data, loading, error}] = useMutation(CREATE_USER_MUTATION);
-
-  const addUser = ({userLoginEMail}) => {
+  const addUser = () => {
     createUser({
       variables: {
+        id: uuidv4(),
         email: email,
       },
     });
 
-    console.log(data);
-    console.log(loading);
-    console.log(error);
-
-    if (loading) return 'Submitting...';
-    if (error) return `Submission error! ${error.message}`;
-
+  if (loading) return 'Submitting...';
+  if (error) return `Submission error! ${error.message}`;
     history.push("/todos");
   };
-
+  
   return (
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
